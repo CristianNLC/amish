@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura Amish - Estilo de Vida Tradicional</title>
+    <style>
+        /* Estilos generales */
+        :root {
+            --color-primary: #8B7355;
+            --color-secondary: #D2B48C;
+            --color-accent: #654321;
+            --color-light: #F5F5DC;
+            --color-dark: #3E2723;
+            --font-main: 'Georgia', serif;
+            --font-heading: 'Times New Roman', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d2b48c' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 1rem 0;
+            border-bottom: 5px solid var(--color-primary);
+            text-wrap: nowrap;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Páginas */
+        .page {
+            display: none;
+            padding: 2rem 0;
+            min-height: 70vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul,
+        ol {
+            margin-left: 2rem;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid var(--color-primary);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        /* Elementos decorativos */
+        .decorative-border {
+            border: 2px solid var(--color-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .quote {
+            font-style: italic;
+            padding: 1rem;
+            border-left: 4px solid var(--color-primary);
+            background-color: rgba(210, 180, 140, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .image-wrapper {
+            width: full;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .image-placeholder {
+            height: 200px;
+            background-color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            border: 2px dashed var(--color-primary);
+            color: var(--color-dark);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            border-top: 5px solid var(--color-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+
+        /* Diseño para texto e imagen lado a lado */
+        .content-flex {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content {
+            flex: 2;
+            font-size: 1rem;
+        }
+
+        .map-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* Responsive: en pantallas pequeñas, la imagen baja debajo del texto */
+        @media (max-width: 768px) {
+            .content-flex {
+                flex-direction: column;
+            }
+        }
+
+        /* Estilo para la imagen flotante a la derecha */
+        .map-float-right {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            width: 300px;
+            /* Ajusta según necesites */
+        }
+
+        .map-float-right img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* Limpiar el float después del contenido */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Cultura Amish</div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-page="home">Inicio</a></li>
+                    <li><a href="#" data-page="history">Historia</a></li>
+                    <li><a href="#" data-page="culture">Cultura</a></li>
+                    <li><a href="#" data-page="inculturation">Inculturación</a></li>
+                    <li><a href="#" data-page="symbols">Símbolos y Valores</a></li>
+                    <li><a href="#" data-page="globalization">Globalización</a></li>
+                    <li><a href="#" data-page="Expacion">Expansión por Latinoamerica</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Página de Inicio -->
+        <section id="home" class="page active">
+            <h1>Los Amish: Una Vida de Simplicidad y Fe</h1>
+
+            <div class="decorative-border">
+                <p>Los Amish son una comunidad religiosa anabautista conocida por su estilo de vida sencillo, su
+                    vestimenta modesta y su resistencia a adoptar muchas comodidades de la tecnología moderna. Este
+                    sitio web explora su historia, cultura, valores y la forma en que mantienen sus tradiciones en el
+                    mundo moderno.</p>
+
+                <div class="image-wrapper">
+                    <img src="comunidad.jpg">
+                </div>
+
+                <p>Originarios de Europa Central en el siglo XVI, los Amish emigraron a América en el siglo XVIII
+                    buscando libertad religiosa. Hoy en día, sus comunidades se encuentran principalmente en
+                    Pensilvania, Ohio, Indiana (EE. UU.) y Ontario (Canadá).</p>
+
+                <div class="quote">
+                    "La vida Amish se rige por un estricto código no escrito de normas y tradiciones llamado la Ordnung,
+                    que regula casi todos los aspectos de la vida diaria."
+                </div>
+
+                <p>Explora las diferentes secciones de este sitio para conocer más sobre esta fascinante cultura que ha
+                    mantenido sus tradiciones a lo largo de los siglos, adaptándose selectivamente al mundo moderno
+                    mientras preserva sus valores fundamentales.</p>
+            </div>
+        </section>
+
+        <!-- Página de Historia -->
+        <section id="history" class="page">
+            <h1>Historia y Origen de los Amish</h1>
+
+            <div class="decorative-border">
+                <h2>Orígenes en Europa</h2>
+                <p>La comunidad Amish tiene sus raíces en el movimiento anabaptista (o "rebautizadores") del siglo XVI
+                    en Europa Central, particularmente en Suiza y el sur de Alemania.</p>
+
+                <h3>Surgimiento como grupo distintivo</h3>
+                <p>Los Amish como grupo distintivo surgieron a finales del siglo XVII (alrededor de 1693), liderados por
+                    Jakob Ammann. Él buscaba un anabaptismo más estricto y se separó de los menonitas suizos, poniendo
+                    énfasis en la disciplina eclesiástica, la sencillez de vida y la práctica del Meidung (la exclusión
+                    o "evitación" de los miembros excomulgados).</p>
+
+                <h3>Emigración a América</h3>
+                <p>Debido a la persecución política y religiosa en Europa, buscaron refugio. Los primeros grupos de
+                    Amish llegaron a América, principalmente a Pensilvania, alrededor de 1730, atraídos por la promesa
+                    de libertad religiosa ofrecida por William Penn.</p>
+
+                <div class="image-wrapper">
+                    <img src="migracion.jpg">
+                </div>
+
+                <p>Los principales asentamientos se encuentran hoy en Pensilvania, Ohio e Indiana (EE. UU.) y Ontario
+                    (Canadá).</p>
+            </div>
+        </section>
+
+        <!-- Página de Cultura -->
+        <section id="culture" class="page">
+            <h1>Cultura y Vida Diaria Amish</h1>
+
+            <div class="decorative-border">
+                <h2>Aspectos Fundamentales de la Cultura Amish</h2>
+
+                <table>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Religión</td>
+                        <td>Anabaptismo (rama protestante). Creen en la interpretación literal de la Biblia, el bautismo
+                            de adultos (decisión personal), el pacifismo (rechazo a la violencia y al servicio militar)
+                            y la humildad (Gelassenheit). No tienen edificios de iglesia; las reuniones son rotativas en
+                            casas.</td>
+                    </tr>
+                    <tr>
+                        <td>Lengua</td>
+                        <td>En el hogar y la comunidad, hablan el Alemán de Pensilvania (Pennsylvania Dutch o Deitsch),
+                            un dialecto alto alemán. Usan un alemán estándar más antiguo (Hochdeutsch) para los sermones
+                            y la lectura de la Biblia. Aprenden inglés para comunicarse con el "mundo exterior".</td>
+                    </tr>
+                    <tr>
+                        <td>Vestimenta</td>
+                        <td>Estilo tradicional, sencillo y modesto, sin adornos ni estampados, generalmente en colores
+                            oscuros. Las mujeres usan vestidos largos y cubren su cabeza con un bonete o pañuelo. Los
+                            hombres usan pantalones oscuros, camisas de manga larga, tirantes y sombrero. Los hombres
+                            casados se dejan barba (símbolo de madurez y matrimonio), pero prohíben el bigote.</td>
+                    </tr>
+                    <tr>
+                        <td>Vida diaria</td>
+                        <td>Se centra en el trabajo agrícola, la familia y la religión. Rechazan la mayoría de la
+                            tecnología moderna (electricidad, automóviles, televisión, teléfonos móviles) para evitar
+                            distracciones y mantener la separación del mundo. Usan carruajes tirados por caballos.</td>
+                    </tr>
+                    <tr>
+                        <td>Educación</td>
+                        <td>Limitada, solo hasta el equivalente al 8vo grado (13-14 años). Se enfocan en habilidades
+                            prácticas y religiosas para la vida en la comunidad y la granja.</td>
+                    </tr>
+                </table>
+
+                <div class="image-wrapper">
+                    <img src="vestimenta.jpg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Inculturación -->
+        <section id="inculturation" class="page">
+            <h1>Inculturación y Aculturación</h1>
+
+            <div class="decorative-border">
+                <h2>Separación Cultural</h2>
+                <p>Los Amish viven en un estado de separación cultural con la sociedad dominante, lo cual es un
+                    resultado de su proceso de adaptación.</p>
+
+                <h3>Separación</h3>
+                <p>En términos de aculturación, su postura es de separación, donde mantienen firmemente su cultura
+                    original y rechazan la adopción de la mayoría de los valores y prácticas de la cultura dominante
+                    (estadounidense/canadiense).</p>
+
+                <h3>Acomodación Selectiva</h3>
+                <p>Sin embargo, no viven en un aislamiento total. Han adoptado selectivamente ciertas tecnologías que
+                    ayudan a sus negocios o granjas (como equipos agrícolas que funcionan con aire o propano en lugar de
+                    electricidad) y que no amenazan sus valores centrales de vida sencilla y comunitaria.</p>
+
+                <h3>Rumspringa</h3>
+                <p>Es un periodo de "prueba" o reflexión que atraviesan los jóvenes Amish (a partir de los 16 años)
+                    antes de ser bautizados. Durante esta etapa, tienen la libertad de experimentar el "mundo exterior"
+                    y decidir si eligen comprometerse de por vida con la comunidad y el Ordnung (normas). La gran
+                    mayoría opta por el bautismo y la permanencia.</p>
+
+                <div class="image-wrapper">
+                    <img src="rumspringa.jpg">
+                </div>
+
+                <div class="quote">
+                    "La gran mayoría de los jóvenes Amish opta por el bautismo y la permanencia en la comunidad después
+                    del período de Rumspringa."
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Símbolos y Valores -->
+        <section id="symbols" class="page">
+            <h1>Símbolos, Normas y Valores Amish</h1>
+
+            <div class="decorative-border">
+                <h2>La Ordnung: Normas de Vida</h2>
+                <p>La vida Amish se rige por un estricto código no escrito de normas y tradiciones llamado la Ordnung
+                    (La Ordenanza o Reglamento).</p>
+
+                <h3>Regulación de la Vida</h3>
+                <p>La Ordnung regula casi todos los aspectos de la vida diaria: vestimenta, uso de tecnología, estilo de
+                    granja, peinados, y reglas para el culto y las bodas.</p>
+
+                <h3>Variabilidad</h3>
+                <p>Las reglas difieren significativamente entre los más de 40 subgrupos Amish (por ejemplo, Old Order
+                    Amish, New Order Amish). Lo que está permitido en una comunidad puede estar prohibido en otra.</p>
+
+                <h2>Valores Fundamentales</h2>
+
+                <table>
+                    <tr>
+                        <th>Valor</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Gelassenheit</td>
+                        <td>Humildad, sumisión a la voluntad de Dios y a la comunidad. Es la antítesis del orgullo y la
+                            arrogancia.</td>
+                    </tr>
+                    <tr>
+                        <td>Pacifismo</td>
+                        <td>Rechazo a la violencia y al servicio militar.</td>
+                    </tr>
+                    <tr>
+                        <td>Sencillez</td>
+                        <td>Rechazo al consumismo, a la ostentación y a la tecnología moderna por considerarlos una
+                            distracción de la fe y la vida familiar.</td>
+                    </tr>
+                    <tr>
+                        <td>Comunidad</td>
+                        <td>Fuerte sentido de apoyo mutuo (Bee) y cooperación. La comunidad es más importante que el
+                            individuo.</td>
+                    </tr>
+                    <tr>
+                        <td>Trabajo Duro</td>
+                        <td>La ética del trabajo es fundamental, principalmente en la agricultura.</td>
+                    </tr>
+                    <tr>
+                        <td>Familia</td>
+                        <td>Es la unidad central de la sociedad. Familias grandes y unidas, donde se cuida a los
+                            ancianos en casa.</td>
+                    </tr>
+                </table>
+
+                <h2>Símbolos Identitarios</h2>
+                <p>Los símbolos en la cultura Amish son más funcionales y de identidad que ornamentales.</p>
+
+                <h3>Carruaje Tirado por Caballos (Buggy)</h3>
+                <p>Es el medio de transporte icónico y un símbolo visible de su separación del mundo y su rechazo al
+                    automóvil.</p>
+
+                <h3>Vestimenta Sencilla</h3>
+                <p>La ropa simple, de colores oscuros, sin adornos ni botones (en algunos grupos), es un símbolo de
+                    humildad y uniformidad.</p>
+
+                <h3>Barba</h3>
+                <p>La barba completa (sin bigote) en los hombres casados es un símbolo de madurez, compromiso
+                    matrimonial y de su rechazo a los símbolos militares (los bigotes eran comunes en los militares
+                    europeos).</p>
+
+                <h3>Ausencia de Joyas/Adornos</h3>
+                <p>Simboliza la humildad y el rechazo a la vanidad (Hochmut).</p>
+
+                <div class="image-wrapper">
+                    <img src="buggy.jpg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Globalización -->
+        <section id="globalization" class="page">
+            <h1>Influencia de la Globalización y Adaptación Actual</h1>
+
+            <div class="decorative-border">
+                <h2>Resistencia a la Globalización Tecnológica</h2>
+                <p>La principal influencia de la globalización es el desafío constante que representa para sus valores
+                    de separación del mundo (Gelassenheit).</p>
+
+                <h3>Rechazo a la Tecnología de Conexión</h3>
+                <p>Los Amish han rechazado sistemáticamente tecnologías clave de la globalización como Internet, los
+                    teléfonos móviles y la televisión, ya que consideran que fomentan el individualismo, la vanidad
+                    (Hochmut), y las distracciones que debilitan el núcleo familiar y comunitario.</p>
+
+                <h3>Aceptación Condicional de Tecnología</h3>
+                <p>La comunidad Amish no rechaza la tecnología per se, sino que la evalúa bajo la premisa: "¿Este cambio
+                    beneficiará o perjudicará a nuestra comunidad?" (según las normas de la Ordnung).</p>
+
+                <ul>
+                    <li>Pueden utilizar sistemas neumáticos o de gas propano para herramientas, refrigeración o
+                        iluminación, ya que no dependen de la red eléctrica externa y son más controlables.</li>
+                    <li>Algunos negocios pueden tener un teléfono comunitario en una caseta fuera del hogar para
+                        mantener el contacto comercial, pero no para llamadas personales.</li>
+                    <li>Pueden contratar conductores no amish para transportar sus productos al mercado, resolviendo una
+                        necesidad logística sin comprometer su prohibición de poseer y conducir automóviles.</li>
+                </ul>
+
+                <h2>Desempeño Económico Actual y Adaptación</h2>
+                <p>Contrario a la idea de que están estancados en el siglo XVIII, los Amish han mostrado una notable
+                    capacidad de adaptación económica que garantiza su autosuficiencia y supervivencia en el siglo XXI.
+                </p>
+
+                <h3>Cambio de Enfoque</h3>
+                <p>Aunque tradicionalmente fueron agricultores, la alta natalidad y el aumento del costo de la tierra
+                    han hecho que muchos se trasladen de la agricultura pura a la microempresa o pequeño negocio.</p>
+
+                <h3>Negocios Exitosos</h3>
+                <p>Sus negocios—como carpintería, fabricación de muebles, herrería, panaderías, productos orgánicos y
+                    artesanías—son altamente exitosos en el mercado estadounidense por su enfoque en:</p>
+
+                <ul>
+                    <li><strong>Calidad:</strong> El énfasis en el trabajo duro, la artesanía y la durabilidad les da
+                        una ventaja competitiva.</li>
+                    <li><strong>Bajos Costos Operativos:</strong> La mano de obra familiar y el rechazo a la tecnología
+                        y la publicidad moderna mantienen los costos bajos.</li>
+                    <li><strong>Ética de Comunidad:</strong> El apoyo y la cooperación entre miembros (como ayudarse a
+                        construir un granero o compartir herramientas) fortalecen su red empresarial.</li>
+                </ul>
+
+                <h3>Estabilidad Empresarial</h3>
+                <p>Su tasa de éxito empresarial es notablemente alta; un porcentaje muy bajo de sus actividades cierran
+                    antes de los cinco años, lo cual es inusual en EE. UU.</p>
+
+                <h2>Presión Demográfica y Social</h2>
+                <p>El crecimiento poblacional y la cercanía de las áreas urbanas son los mayores retos de la
+                    globalización.</p>
+
+                <h3>Rumspringa</h3>
+                <p>El período de prueba para los jóvenes (dejar su comunidad por un tiempo antes del bautismo) se
+                    considera un proceso crucial para que la elección de permanecer en la comunidad sea consciente y
+                    libre en un mundo globalizado.</p>
+
+                <h3>Urbanización</h3>
+                <p>La expansión de las ciudades y el turismo en sus zonas rurales crea una mayor interacción con el
+                    mundo exterior, desafiando la "separación" y exponiendo a la comunidad a valores y estilos de vida
+                    opuestos.</p>
+
+                <div class="quote">
+                    "La estrategia amish es, por lo tanto, una integración controlada en la economía global a través de
+                    sus productos y servicios, manteniendo a la vez una estricta separación cultural para preservar sus
+                    normas y valores fundacionales."
+                </div>
+
+                <div class="image-wrapper">
+                    <img src="comercio.jpg">
+                </div>
+            </div>
+        </section>
+        <section id="Expacion" class="page">
+            <h1>Expansión de los Amish por América Latina</h1>
+
+            <div class="decorative-border clearfix">
+
+                <h2>Presencia en América Latina y Argentina</h2>
+
+                <!-- Imagen flotante a la derecha -->
+                <div class="map-float-right">
+                    <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15390/production/_128882968_map02-nc.png.webp"
+                        alt="Mapa de comunidades menonitas en América Latina">
+                    <div class="caption">
+                        Fuente: Pioneros piadosos: La expansión de las colonias menonitas en América Latina,
+                        Departamento de Geografía, Universidad McGill
+                    </div>
+                </div>
+
+                <!-- Texto que envuelve la imagen -->
+                <p>A partir del siglo XX, varias comunidades menonitas migraron desde Canadá, México y Paraguay hacia
+                    América del Sur, buscando tierras agrícolas y libertad para mantener su modo de vida. En Argentina,
+                    las primeras colonias se establecieron en la década de 1980, principalmente en La Pampa, Santiago
+                    del Estero, Entre Ríos y Salta. Estas colonias se caracterizan por su autosuficiencia: cultivan sus
+                    alimentos, fabrican sus herramientas y educan a sus hijos dentro de la comunidad.</p>
+
+                <!-- Título y texto debajo, que ahora se ajustará al espacio libre -->
+                <h2>Presencia en el resto de América</h2>
+                <p>También existen comunidades menonitas en México, Bolivia, Paraguay, Belice y Uruguay. En países como
+                    Paraguay y Bolivia, algunas colonias son tan grandes que funcionan como verdaderos pueblos
+                    autónomos, con su propio sistema educativo, justicia interna y lengua —el <em>plautdietsch</em>, un
+                    dialecto del bajo alemán.</p>
+                <p>En conjunto, los menonitas y los amish representan dos ramas de un mismo tronco espiritual que, a lo
+                    largo de los siglos, se adaptaron de maneras distintas para mantener su identidad frente al avance
+                    del
+                    mundo moderno. Su presencia en América Latina sigue siendo un ejemplo de cómo comunidades
+                    pequeñas pueden conservar sus tradiciones en medio de culturas muy diferentes. </p>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación entre páginas
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            const pages = document.querySelectorAll('.page');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Ocultar todas las páginas
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+
+                    // Mostrar la página seleccionada
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
